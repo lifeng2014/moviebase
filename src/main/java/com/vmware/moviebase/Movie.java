@@ -1,9 +1,15 @@
 package com.vmware.moviebase;
 
 public class Movie {
-
+    private String name;
+    
 	public Movie(String movie) {
-		// TODO Auto-generated constructor stub
+		this.name = movie;
+	}
+
+	public Object getName() {
+		
+		return name;
 	}
 
 }

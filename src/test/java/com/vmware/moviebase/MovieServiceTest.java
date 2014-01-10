@@ -61,5 +61,18 @@ public class MovieServiceTest {
 		}
 	
 	}
+	
+	public void removeMovieNotExist()
+	{
+		movieService.addMovie(new Movie("VMware movie#1"));
+		movieService.addMovie(new Movie("VMware movie#2"));
+		try {
+			movieService.removeByName("titanic");
+			fail("Was expecting an exception in removeMovieNotExist() ");
+		} catch (MovieException e) {
+			assertEquals(e.getMessage(),"The movie does not exist in the service");
+		}
+		
+	}
 
 }

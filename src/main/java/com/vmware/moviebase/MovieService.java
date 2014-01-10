@@ -5,26 +5,32 @@ public class MovieService {
 	
 	
 	private int count = 0;
-
+	private List<Movie> movies = new ArrayList<Movie>();
+ 
 	public MovieService(String title) {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public void addMovie(Movie movie) {
-		// TODO Auto-generated method stub
+		movies.add(movie);
 		count++;
 	}
 
 	public int getCount() {
-		// TODO Auto-generated method stub
 		return count;
 	}
 
-	public void removeByName(String string) throws MovieException {
+	public void removeByName(String name) throws MovieException {
 		if(count == 0)
 		throw new MovieException("There are no movies in the service");
-		
-		--count;
+	
+		for (Movie m: movies){
+			if(m.getName().equals(name)){
+				movies.remove(m);
+				count--;
+				break; //why not return here?
+			}
+		}
 		
 	}
 
