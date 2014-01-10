@@ -16,7 +16,11 @@ public class MovieServiceTest {
 	}
 	
 	@Test
-	public void addOneMovieGetAmount(){}
+	public void addOneMovieGetAmount(){
+		MovieService movieService = new MovieService("VMware Movie"); //subject under test
+		movieService.addMovie(new Movie("VMware movie#1"));
+		assertEquals(movieService.getCount(),1);
+	}
 	
 	@Test
 	public void getAmountNoMovies() {}
